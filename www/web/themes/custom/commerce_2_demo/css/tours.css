@@ -1,0 +1,263 @@
+/**
+ * Custom site tours.
+ * http://introjs.com/docs/
+ */
+
+
+/* Tour selection modal */
+
+.site-tours-wrapper {
+  text-align: right;
+}
+
+@media (max-width: 991px) {
+  .site-tours-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Tour selection modal - Modal buttons */
+
+#siteTours-start i,
+#siteTours i {
+  margin-right: 6px;
+}
+
+#siteTours-start.fixed-button {
+  position: fixed;
+  top: 45%;
+  right: -63px;
+  z-index: 5;
+  padding-bottom: 12px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 5px solid #990000;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+@media (max-width: 1065px) {
+  #siteTours-start.fixed-button {
+    display: none;
+  }
+}
+
+/* Tour selection modal - Modal content */
+
+#siteTours {
+  z-index: 16000005;
+}
+
+#siteTours .modal-body {
+  text-align: center;
+}
+
+#siteTours .modal-body button {
+  display: inline-block;
+  width: 45%;
+  min-width: 210px;
+  padding: 10px;
+  margin: 0 10px 12px 10px;
+  text-align: left;
+}
+
+#siteTours .modal-body button.disabled {
+  background-color: #aaa;
+  border: none;
+}
+
+/* Tour selection modal - HubSpot form */
+
+.help-form {
+  display: block;
+  margin-top: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+.help-form h3 {
+  margin-top: 15px;
+}
+.help-form .hs-form-field {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+.help-form .hs_firstname,
+.help-form .hs_lastname {
+  width: 25%;
+}
+.help-form .hs_email {
+  width: 35%;
+}
+.help-form .hs_submit {
+  display: inline-block;
+  vertical-align: top;
+  width: 15%;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.help-form .hs-form-field label {
+  font-size: 14px;
+}
+.help-form .hs-form-field label .hs-form-required {
+  margin-left: 3px;
+  font-weight: normal;
+}
+.help-form .hs-form-field .hs-input {
+  width: calc(100% - 15px);
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.help-form .hs-button.primary {
+  padding: 6px 15px;
+  margin: 5px 2px 0;
+  border: 1px solid #cc0000;
+  border-radius: 4px;
+  background-color: #cc0000;
+  background-image: none;
+  color: #fff;
+  font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  text-shadow: none;
+  transition: color .1s ease-in-out, background-color .1s ease-in-out, border-color .1s ease-in-out, opacity .1s ease-in-out;
+  display: inline-block;
+  font-weight: normal;
+  vertical-align: middle;
+  touch-action: manipulation;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+.help-form .hs-button.primary:hover,
+.help-form .hs-button.primary:focus,
+.help-form .hs-button.primary:active {
+  background-color: #990000;
+  border: 1px solid #990000;
+  color: #fff;
+}
+.help-form .hs-error-msgs {
+  margin: 0;
+  padding: 5px 15px 5px 17px;
+  color: #cc0000;
+  font-size: 12px;
+  font-weight: normal;
+}
+.help-form .hs-error-msgs label {
+  font-size: 12px;
+  font-weight: normal;
+  vertical-align: top;
+}
+.help-form .submitted-message {
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Tour selection modal - Acro credits */
+
+#siteTours .modal-credits {
+  float: left;
+  margin: 8px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Intro.js overrides */
+
+.introjs-overlay {
+  opacity: 1;
+}
+
+.introjs-tooltip__custom {
+  padding: 25px;
+  min-width: 300px;
+  max-width: 400px;
+  border-radius: 4px;
+}
+
+.introjs-tooltip__title {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #cc0000;
+}
+
+.introjs-helperNumberLayer {
+  background: #cc0000;
+}
+
+.introjs-bullets {
+  margin-bottom: 10px;
+}
+
+a.introjs-button {
+  padding: 6px 15px;
+  margin: 5px 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  background-image: none;
+  color: #333;
+  font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  text-shadow: none;
+  transition: color .1s ease-in-out, background-color .1s ease-in-out, border-color .1s ease-in-out, opacity .1s ease-in-out;
+  display: inline-block;
+  font-weight: normal;
+  vertical-align: middle;
+  touch-action: manipulation;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+a.introjs-button:hover,
+a.introjs-button:focus,
+a.introjs-button:active {
+  color: #cc0000;
+  background-image: none;
+  outline: none;
+}
+
+a.introjs-nextbutton,
+a.introjs-donebutton {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a.introjs-nextbutton:hover,
+a.introjs-nextbutton:focus,
+a.introjs-nextbutton:active,
+a.introjs-donebutton:hover,
+a.introjs-donebutton:focus,
+a.introjs-donebutton:active {
+  background-color: #990000;
+  border-color: #990000;
+  color: #fff;
+}
+
+a.introjs-disabled {
+  color: #9a9a9a;
+  border-color: #d4d4d4;
+  box-shadow: none;
+  cursor: default;
+  background-color: #f4f4f4;
+  background-image: none;
+  text-decoration: none;
+}
+a.introjs-disabled:hover,
+a.introjs-disabled:focus,
+a.introjs-disabled:active {
+  border-color: #d4d4d4;
+  background-color: #f4f4f4;
+  color: #9a9a9a;
+}

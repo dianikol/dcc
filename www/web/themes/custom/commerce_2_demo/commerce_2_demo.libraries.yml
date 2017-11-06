@@ -1,0 +1,32 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/style.css: { media: all }
+  js:
+    js/custom/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+tours:
+  version: 1.x
+  css:
+    theme:
+      css/contrib/introjs.min.css: { media: all }
+      css/tours.css: { media: all }
+  js:
+    js/contrib/js.cookie.js: {}
+    js/contrib/intro.min.js: {}
+    js/custom/tours.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+maintenance_page:
+  version: 1.x
+  css:
+    theme:
+      css/maintenance-page.css: { media: all }
+  dependencies:
+    - system/maintenance

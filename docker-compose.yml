@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+    solr:
+        image: solr:6
+        ports:
+         - "8983:8983"
+        volumes:
+          - ./data:/opt/solr/server/solr/mycores
+          - ./www/web/modules/contrib/search_api_solr/solr-conf/6.x:/opt/solr/server/solr/6.x/conf
+          - ./www/web/modules/contrib/search_api_solr/solr-conf/6.x/core.properties:/opt/solr/server/solr/6.x/core.properties
+        entrypoint:
+          - docker-entrypoint.sh
+          - solr-precreate
+          - collection1
+    db:
+        image: mysql:5.6
+        container_name: dc_db
+        ports:
+            - 3306:3306
+        volumes:
+            - ./database:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=dc
+    php-apache-server:
+        build: ./environment/php-apache-server
+        container_name: dc_server_php
+        environment:
+            - VIRTUAL_HOST=dc.dev
+        ports:
+            - 80:80
+        volumes:
+            - ./www/:/var/www/dc/
+            #- ./environment/php-apache/default-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
+            - ./environment/php-apache-server/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+            - ./environment/php-apache-server/php.ini:/usr/local/etc/php/php.ini
+            - ./environment/php-apache-server/apache-config.conf:/etc/apache2/sites-enabled/000-default.conf

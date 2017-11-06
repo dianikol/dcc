@@ -1,0 +1,202 @@
+{# Set the path for the footer logo icon. #}
+{% set site_logo_icon_url =  base_path ~ directory ~ '/gfx/logo-icon.svg' %}
+
+<footer class="site-footer">
+  <div class="container">
+    {# Footer top. #}
+    <div class="site-footer__top">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          {# Logo. #}
+          <div class="site-footer__logo">
+            <a href="{{ front_page }}">
+              <img src="{{ site_logo_icon_url }}" alt="{{ site_name ? site_name }}" />
+            </a>
+          </div>
+
+          {# Contact info. #}
+          {% if page.footer_top %}
+            <div class="site-footer__contact">
+              {{ page.footer_top }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          {# Social media navigation. #}
+          {% if page.social_nav %}
+            <div class="social-media-nav">
+              {{ page.social_nav }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {# Footer main. #}
+    <div class="site-footer__main">
+      <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          {# Store address. #}
+          {% if page.footer %}
+            <div class="">
+              {{ page.footer }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="hidden-xs hidden-sm col-md-9 col-lg-8">
+          {% if page.primary_nav %}
+            {# Primary navigation in footer. #}
+            <div class="footer-main-nav">
+              {{ page.primary_nav }}
+            </div>
+          {% endif %}
+
+          {% if page.special_nav %}
+            {# Special navigation in footer. #}
+            <div class="footer-main-nav">
+              {{ page.special_nav }}
+            </div>
+          {% endif %}
+
+          {% if page.header_nav %}
+            {# Header navigation in footer. #}
+            <div class="footer-main-nav">
+              {{ page.header_nav }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {# Footer bottom. #}
+    <div class="site-footer__bottom">
+      <div class="row">
+        <div class="hidden-xs col-sm-12 col-md-5 pull-right site-tours-wrapper">
+          {# Button trigger modal #}
+          <button type="button" id="siteTours-start" class="btn btn-primary" data-toggle="modal" data-target="#siteTours">
+            <i class="fa fa-star fa-lg"></i> {{ 'Guided Tours'|t }}
+          </button>
+
+          {# GitHub links #}
+          <div class="github">
+            <i class="fa fa-github fa-2x"></i>
+            <a href="https://github.com/AcroMedia/commerce-demo" target="_blank" class="btn btn-default">{{ 'View source code'|t }} <i class="fa fa-angle-right"></i></a>
+            <a href="https://github.com/AcroMedia/commerce-demo/issues" target="_blank" class="btn btn-default">{{ 'Report a bug'|t }} <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-7">
+          {# Footer navigation. #}
+          {% if page.footer_nav %}
+            <div class="footer-nav">
+              {{ page.footer_nav }}
+            </div>
+          {% endif %}
+
+          {# Copyright. #}
+          <div class="site-footer__copyright">
+            {{ 'Copyright &copy; @year'|t({'@year': 'now'|date('Y')}) }}
+            <a href="{{ front_page }}">{{ 'Urban Hipster Inc.'|t }}</a>
+            {{ 'All rights reserved.'|t }}
+          </div>
+
+          {# Acro Media Inc. #}
+          <div class="site-footer__acro">
+            {{ 'Website design by'|t }} <a href="https://www.acromedia.com" target="_blank">{{ 'Acro Media Inc.'|t }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+{# Tour Modal #}
+<div class="modal fade" id="siteTours" tabindex="-1" role="dialog" aria-labelledby="siteToursLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="headerCloseTours" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="siteToursLabel"><i class="fa fa-star fa-lg"></i> {{ 'Guided Tours'|t }}</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong>{{ 'Welcome to the Drupal Commerce 2 demo site!'|t }}</strong>
+          <br>
+          {{ 'Select a guided feature tour below OR close the window and look around.'|t }}
+        </p>
+
+        <button type="button" class="btn btn-primary" id="homepageTour">
+          <i class="fa fa-home fa-lg"></i> {{ 'Homepage Features'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="productPageTour">
+          <i class="fa fa-gift fa-lg"></i> {{ 'Product Page'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="catalogFiltersTour">
+          <i class="fa fa-th-large fa-lg"></i> {{ 'Catalog & Filters'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="solrSearchTour">
+          <i class="fa fa-search fa-lg"></i> {{ 'Faceted Search'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="quickCartTour">
+          <i class="fa fa-shopping-basket fa-lg"></i> {{ 'Quick Cart'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="checkoutPhysicalTour">
+          <i class="fa fa-shopping-cart fa-lg"></i> {{ 'Checkout - Physical'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="checkoutDigitalTour">
+          <i class="fa fa-cart-arrow-down fa-lg"></i> {{ 'Checkout - Digital'|t }}
+        </button>
+
+        {#
+        <button type="button" class="btn btn-primary disabled" id="customerAccountTour">
+          <i class="fa fa-address-book fa-lg"></i> {{ 'Customer Account'|t }}
+        </button>
+        #}
+
+        <button type="button" class="btn btn-primary" id="whyDrupalTour">
+          <i class="fa fa-drupal fa-lg"></i> {{ 'Why Drupal?'|t }}
+        </button>
+
+        <button type="button" class="btn btn-primary" id="whyOpenSourceTour">
+          <i class="fa fa-code fa-lg"></i> {{ 'Why Open Source?'|t }}
+        </button>
+
+        <div class="help-form text-left">
+          <h3>Need a Hand?</h3>
+          Fill out the form to have one of our Drupal Commerce experts contact you.<br>
+          <span class="small">All fields marked with * are required.</span>
+
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              css: '',
+              portalId: '1659229',
+              formId: '4c37690f-26db-47d5-8e95-d9561e6f9594'
+            });
+          </script>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-credits">
+          {% trans %}
+            Tours built by <a href="https://www.acromedia.com" target="_blank" title="Visit Acro Media's website">Acro Media Inc.</a>
+          {% endtrans %}
+        </div>
+
+        <button type="button" id="footerCloseTours" class="btn btn-default" data-dismiss="modal">{{ 'Close'|t }}</button>
+      </div>
+    </div>
+  </div>
+</div>
